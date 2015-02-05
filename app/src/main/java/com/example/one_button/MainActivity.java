@@ -11,6 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
 /*Це Сєва і я редагую твій проект*/
 public class MainActivity extends ActionBarActivity {
 
@@ -50,12 +60,36 @@ public class MainActivity extends ActionBarActivity {
                 /*І ще чогось всі надають перевагу Integer.valueOf(String str)*/
 
                 textView.setText(String.valueOf(num_1+num_2));
-
+                /*
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
                 intent.putExtra("sum",String.valueOf(num_1+num_2));
                 startActivity(intent);
+                */
+                post_t();
             }
         });
+    }
+
+    private void post_t(){
+        String URL = "/volley/resource/all?count=20";
+        JsonArrayRequest req = new JsonArrayRequest(URL, new Response.Listener<JSONArray> () {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    VolleyLog.v("Response:%n %s", response.toString(4));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        });
+
+// add the request object to the queue to be executed
+        ApplicationController.getInstance().addToRequestQueue(req);
     }
 
 
