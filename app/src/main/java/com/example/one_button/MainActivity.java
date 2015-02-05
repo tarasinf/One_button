@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
+/*Це Сєва і я редагую твій проект*/
 public class MainActivity extends ActionBarActivity {
 
     private EditText editText;
