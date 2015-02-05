@@ -15,6 +15,12 @@ public class MainActivity2 extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2);
+        /*
+        Це треба сюди
+        textView2 = (TextView)findViewById(R.id.textView2);
+        Intent intent = getIntent();
+        String uns = intent.getStringExtra("sum");
+        textView2.setText(uns);*/
     }
 
 

@@ -42,8 +42,14 @@ public class MainActivity extends ActionBarActivity {
                 int num_1,num_2;
                 num_1 = Integer.parseInt(editText.getText().toString());
                 num_2 = Integer.parseInt(editText2.getText().toString());
-                textView.setText(String.valueOf(num_1+num_2));
 
+                /*Тут можна б було
+                int num_1 = Integer.parseInt(editText.getText().toString());
+                int num_2 = Integer.parseInt(editText2.getText().toString());*/
+
+                /*І ще чогось всі надають перевагу Integer.valueOf(String str)*/
+
+                textView.setText(String.valueOf(num_1+num_2));
 
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
                 intent.putExtra("sum",String.valueOf(num_1+num_2));
@@ -51,6 +57,9 @@ public class MainActivity extends ActionBarActivity {
             }
         });
     }
+
+
+    // ці штуки можна видалити, вони в тебе не потрібні. Це меню в екшн барі
 
 
     @Override
